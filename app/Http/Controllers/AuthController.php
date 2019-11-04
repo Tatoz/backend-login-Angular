@@ -27,7 +27,7 @@ class AuthController extends Controller
         $credentials = request(['email', 'password']);
 
         if (! $token = auth()->attempt($credentials)) {
-            return response()->json(['error' => 'Unauthorized'], 401);
+            return response()->json(['error' => 'Email o contraseña incorrectos'], 401);
         }
 
         return $this->respondWithToken($token);
@@ -81,4 +81,10 @@ class AuthController extends Controller
             'user' => auth()->user()
         ]);
     }
+
+    public function signup(Request $request){
+
+
+    }
+
 }
